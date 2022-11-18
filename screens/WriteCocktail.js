@@ -31,7 +31,7 @@ function WriteCocktail() {
   // 이전 화면이랑 연결되는 내비게이터
   // onPress -> navigation에 연결 -> 나중에 한꺼번에 연결하는걸로!
 
-  return (
+  return ( 
     <View style={styles.Container}>
       <View style={styles.imageContainer}>
         <Image

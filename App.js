@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons, Entypo, Fontisto, FontAwesome } from "@expo/vector-icons";
 import WriteCocktail from "./screens/WriteCocktail";
@@ -11,7 +12,24 @@ import Cocktail from "./screens/Cocktail";
 import Settings from "./screens/Settings";
 
 const BottomTab = createBottomTabNavigator();
-// const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
+
+function StackNavigator() {
+  return  (
+    <Stack.Navigator>
+      <Stack.Screen name="칵테일 레시피" component={Cocktail} 
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color, size }) => (
+              <Fontisto name="cocktail" color={color} size={size} />
+            )
+          }}/>
+
+      <Stack.Screen name="칵테일 글쓰기" component={WriteCocktail}/>
+
+    </Stack.Navigator>
+  )
+}
 
 export default function App() {
   return (
@@ -30,7 +48,7 @@ export default function App() {
                 <Entypo name="box" color={color} size={size} />
               )
             }} />
-          <BottomTab.Screen name="칵테일 레시피" component={Cocktail} 
+          <BottomTab.Screen name="칵테일 레시피" component={StackNavigator} 
           options={{
             tabBarIcon: ({ color, size }) => (
               <Fontisto name="cocktail" color={color} size={size} />

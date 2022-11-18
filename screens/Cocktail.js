@@ -11,7 +11,7 @@ function Cocktail() {
                 <Text>칵테일 레시피 화면!!</Text>
                 <View>
                     <Pressable android_ripple={{ color: '#dddddd' }} onPress={() => {
-                        navigation.navigate('즐겨찾기')
+                        navigation.navigate('칵테일 글쓰기')
                     }}>
                         <Ionicons name="add-circle" size={48} color="black" />
                     </Pressable>
